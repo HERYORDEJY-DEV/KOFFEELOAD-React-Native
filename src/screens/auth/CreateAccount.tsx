@@ -5,7 +5,7 @@ import * as NB from 'native-base';
 
 import { Primary } from '../../styles/colorPallete';
 import Input from '../../components/Input';
-import { BodyIntroText } from '../../styles/fontSize';
+import { BodyIntroText, Heading2 } from '../../styles/fontSize';
 import ButtonPrimaryBig from '../../components/ButtonPrimaryBig';
 import ButtonSecondaryBig from '../../components/ButtonSecondaryBig';
 
@@ -27,8 +27,16 @@ export default function CreateAccount() {
 
       {/* Login Form */}
       <RN.View style={styles.formWrapper}>
-        <Input label={'Email'} containerStyle={styles.emailInputContainer} />
-        <Input label={'Password'} />
+        {/* Heading Text */}
+        <RN.Text style={Heading2}>Create an Account</RN.Text>
+
+        {/* Inputs */}
+        <RN.View style={styles.inputsWrapper}>
+          <Input label={'Name'} />
+          <Input label={'Email'} />
+          <Input label={'Password'} />
+          <Input label={'Confirm Password'} />
+        </RN.View>
 
         {/* Forget Password Link */}
         <RN.Pressable style={styles.forgotWrapper}>
@@ -39,21 +47,10 @@ export default function CreateAccount() {
 
         {/* Login Button */}
         <ButtonPrimaryBig
-          title={'Login'}
+          title={'Sign Up'}
           onPress={() => {}}
           containerStyle={styles.loginButton}
         />
-
-        {/* OR */}
-        <RN.View style={styles.orWrapper}>
-          <RN.View style={styles.horizontalLine} />
-          <RN.Text style={[BodyIntroText, styles.orText]}>OR</RN.Text>
-          <RN.View style={styles.horizontalLine} />
-        </RN.View>
-
-        {/* SignUp Email */}
-        <ButtonSecondaryBig title={'Sign Up with Email'} onPress={() => {}} />
-        <ButtonSecondaryBig title={'Sign Up with Google'} onPress={() => {}} />
       </RN.View>
 
       {/* Terms & Condition */}
@@ -75,18 +72,10 @@ const styles = RN.StyleSheet.create({
   content: {},
   contentContainerStyle: {},
   logoWrapper: { alignItems: 'center' },
-  formWrapper: { marginTop: 20 },
-  emailInputContainer: { marginBottom: 20 },
+  formWrapper: { marginTop: 40, flex: 1 },
+  inputsWrapper: { marginTop: 20 },
   forgotWrapper: { alignItems: 'flex-end', marginBottom: 20 },
   forgotText: {},
   loginButton: { elevation: 2, margin: 1 },
-  orWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    minHeight: 18,
-    marginVertical: 20,
-  },
-  horizontalLine: { borderWidth: 1, borderColor: Primary(5), flex: 1 },
-  orText: { marginHorizontal: 5 },
   termsWrapper: { alignItems: 'center' },
 });

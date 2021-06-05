@@ -4,7 +4,8 @@ import { useFonts } from 'expo-font';
 import { StyleSheet, Text, View } from 'react-native';
 import { Error, Primary } from './src/styles/colorPallete';
 import { Heading1 } from './src/styles/fontSize';
-import LoginPage from './src/screens/auth/LoginPage';
+import CreateAccount from './src/screens/auth/CreateAccount';
+import Shop from './src/screens/tab/Shop';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -19,7 +20,7 @@ export default function App() {
     return null;
   }
 
-  return <LoginPage />;
+  return <Shop />;
 }
 
 const styles = StyleSheet.create({
