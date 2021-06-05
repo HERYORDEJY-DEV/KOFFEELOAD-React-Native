@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as RN from 'react-native';
 
 import * as NB from 'native-base';
+import { useNavigation } from '@react-navigation/native';
+
 import { Primary } from '../../styles/colorPallete';
 import { CartIcon } from '../../svg/CartIcon';
 import { BodyIntroText, Heading2, MediumText } from '../../styles/fontSize';
@@ -24,6 +26,9 @@ interface CoffeeItemProps {
 }
 
 export default function Shop(props: Props) {
+  // navigation instance
+  const navigation = useNavigation();
+
   function renderCoffeeList() {
     return coffeeList.map((coffee: CoffeeItemProps, index) => (
       <CoffeeItem
@@ -38,11 +43,17 @@ export default function Shop(props: Props) {
 
   return (
     <NB.Container style={styles.container}>
-      <RN.StatusBar backgroundColor={Primary(3)} barStyle={'dark-content'} />
+      <RN.StatusBar
+        translucent={true}
+        backgroundColor={'transparent'}
+        barStyle={'dark-content'}
+      />
       {/* Header  */}
       <RN.View style={styles.headerWrapper}>
         <LongArrowLeft />
-        <CartIcon />
+        <RN.Pressable onPress={() => navigation.navigate('Cart')}>
+          <CartIcon />
+        </RN.Pressable>
       </RN.View>
 
       {/* Search Bar */}
@@ -86,6 +97,7 @@ const styles = RN.StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingVertical: 10,
+    paddingTop: 40,
   },
   descWrapper: { marginBottom: 20 },
   descImage: { minHeight: 16, marginTop: 10, marginBottom: 5 },
@@ -112,5 +124,5 @@ const styles = RN.StyleSheet.create({
     backgroundColor: '#00000080',
     borderRadius: 10,
   },
-  searchBar: { marginBottom: 20 },
+  searchBar: { marginBottom: 10 },
 });

@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as RN from 'react-native';
 
 import * as NB from 'native-base';
+import { useNavigation } from '@react-navigation/native';
+
 import { Primary } from '../../styles/colorPallete';
 import { CartIcon } from '../../svg/CartIcon';
 import { BodyIntroText, Heading2, MediumText } from '../../styles/fontSize';
@@ -18,10 +20,15 @@ interface CoffeeItemProps {
   id: string;
   title: string;
   price: string;
-  imageSource: string;
+  imageSource: RN.ImageProps;
+  description?: string;
+  sku?: string;
 }
 
 export default function Home(props: Props) {
+  // navigation instance
+  const navigation = useNavigation();
+
   function renderCoffeeList() {
     return coffeeList.map(
       (coffee: CoffeeItemProps, index) =>
@@ -32,6 +39,8 @@ export default function Home(props: Props) {
             price={coffee.price}
             id={coffee.id}
             imageSource={coffee.imageSource}
+            description={coffee.description}
+            sku={coffee.sku}
           />
         ),
     );
@@ -39,11 +48,17 @@ export default function Home(props: Props) {
 
   return (
     <NB.Container style={styles.container}>
-      <RN.StatusBar backgroundColor={Primary(3)} barStyle={'dark-content'} />
+      <RN.StatusBar
+        translucent={true}
+        backgroundColor={'transparent'}
+        barStyle={'dark-content'}
+      />
       {/* Header  */}
       <RN.View style={styles.headerWrapper}>
         <RN.Text style={[Heading2, styles.headerText]}>Welcome Adedire</RN.Text>
-        <CartIcon />
+        <RN.Pressable onPress={() => navigation.navigate('Cart')}>
+          <CartIcon />
+        </RN.Pressable>
       </RN.View>
 
       {/* Content */}
@@ -90,26 +105,28 @@ export default function Home(props: Props) {
           </RN.Text>
           <RN.View style={styles.topSellingList}>{renderCoffeeList()}</RN.View>
         </RN.View>
+        <ButtonSecondaryBig
+          title={'Create a Coffee Plan'}
+          onPress={() => navigation.navigate('Cart')}
+          containerStyle={styles.createButton}
+        />
       </NB.Content>
-      <ButtonSecondaryBig
-        title={'Create a Coffee Plan'}
-        onPress={() => {}}
-        containerStyle={styles.createButton}
-      />
     </NB.Container>
   );
 }
 
 const styles = RN.StyleSheet.create({
-  container: { backgroundColor: Primary(3), padding: 20 },
+  container: { backgroundColor: Primary(3), padding: 20, paddingBottom: 0 },
   content: {},
-  contentContainerStyle: {},
+  contentContainerStyle: { paddingBottom: 20 },
   headerWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 5,
-    paddingVertical: 15,
+    marginTop: 0,
+    paddingVertical: 10,
+    paddingBottom: 15,
+    paddingTop: 30,
   },
   headerText: {},
   heroImageWrapper: {
@@ -131,7 +148,7 @@ const styles = RN.StyleSheet.create({
   },
   imageStyle: { borderRadius: 10 },
   ourCoffeeText: { color: '#FFFFFF' },
-  topSellingWrapper: { marginVertical: 10, marginTop: 20 },
+  topSellingWrapper: { marginTop: 20 },
   topSellingTitle: {},
   topSellingList: {
     marginVertical: 10,

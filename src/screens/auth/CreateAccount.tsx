@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as RN from 'react-native';
 
 import * as NB from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 
 import { Primary } from '../../styles/colorPallete';
 import Input from '../../components/Input';
@@ -16,9 +17,16 @@ interface State {}
 // TODO enhance the logo image quality
 
 export default function CreateAccount() {
+  // navigation instance
+  const navigation = useNavigation();
+
   return (
     <NB.Container style={styles.container}>
-      <RN.StatusBar backgroundColor={Primary(3)} barStyle={'dark-content'} />
+      <RN.StatusBar
+        translucent={true}
+        backgroundColor={'transparent'}
+        barStyle={'dark-content'}
+      />
 
       {/*Logo */}
       <RN.View style={styles.logoWrapper}>
@@ -48,7 +56,7 @@ export default function CreateAccount() {
         {/* Login Button */}
         <ButtonPrimaryBig
           title={'Sign Up'}
-          onPress={() => {}}
+          onPress={() => navigation.navigate('LoginPage')}
           containerStyle={styles.loginButton}
         />
       </RN.View>
@@ -68,6 +76,7 @@ const styles = RN.StyleSheet.create({
     backgroundColor: Primary(3),
     padding: 20,
     justifyContent: 'space-between',
+    paddingTop: 50,
   },
   content: {},
   contentContainerStyle: {},

@@ -1,14 +1,18 @@
 import * as React from 'react';
 import * as RN from 'react-native';
-import { Primary } from '../styles/colorPallete';
 
+import { useNavigation } from '@react-navigation/native';
+
+import { Primary } from '../styles/colorPallete';
 import { BodyIntroText, MediumText } from '../styles/fontSize';
 
 interface Props {
   id: string;
   title: string;
   price: string;
-  imageSource: string;
+  description?: string;
+  sku?: string;
+  imageSource: RN.ImageProps;
   onPress?: () => void;
   containerStyle?: RN.StyleProp<RN.PressableProps>;
 }
@@ -16,9 +20,27 @@ interface Props {
 interface State {}
 
 export default function CoffeeItem(props: Props) {
+  // navigation instance
+  const navigation = useNavigation();
+
+  // destructuring props
+  const { id, title, price, imageSource, description, sku } = props;
+
   return (
     <RN.View style={[styles.container, props.containerStyle]}>
-      <RN.Pressable style={[styles.topWrapper]}>
+      <RN.Pressable
+        style={[styles.topWrapper]}
+        onPress={() =>
+          navigation.navigate('CoffeeInfo', {
+            id,
+            title,
+            price,
+            imageSource,
+            description,
+            sku,
+          })
+        }
+      >
         <RN.View style={styles.imageWrapper}>
           <RN.Image style={styles.image} source={props.imageSource} />
         </RN.View>

@@ -28,7 +28,9 @@ interface CoffeeItemProps {
   id: string;
   title: string;
   price: string;
-  imageSource: string;
+  imageSource: RN.ImageProps;
+  description?: string;
+  sku?: string;
 }
 
 export default function Cart(props: Props) {
@@ -42,6 +44,8 @@ export default function Cart(props: Props) {
             price={coffee.price}
             id={coffee.id}
             imageSource={coffee.imageSource}
+            description={coffee.description}
+            sku={coffee.sku}
           />
         ),
     );
@@ -49,7 +53,11 @@ export default function Cart(props: Props) {
 
   return (
     <NB.Container style={styles.container}>
-      <RN.StatusBar backgroundColor={Primary(2)} barStyle={'dark-content'} />
+      <RN.StatusBar
+        translucent={true}
+        backgroundColor={'transparent'}
+        barStyle={'dark-content'}
+      />
 
       {/* Header */}
       <RN.View style={styles.headerWrapper}>
@@ -114,6 +122,7 @@ const styles = RN.StyleSheet.create({
     flex: 0.11,
     justifyContent: 'flex-end',
     paddingHorizontal: 20,
+    paddingTop: 30,
   },
   headerTitle: {},
   headerSubtitle: {},

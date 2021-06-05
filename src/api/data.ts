@@ -6,6 +6,7 @@ export const coffeeList = [
     imageSource: require('../assets/images/Cappuccino-big.png'),
     description:
       'A cappuccino is an Italian coffee drink that is traditionally prepared with equal parts double espresso, steamed milk, and steamed milk foam on top. Cream may be used instead of milk. It is typically smaller in volume than a latte, and has a thicker layer of microfoam.',
+    sku: 'GRAMHKPODS-16',
   },
   {
     id: '002',

@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as RN from 'react-native';
 
 import * as NB from 'native-base';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 // import * as Animatable from 'react-native-animatable'
@@ -18,6 +19,14 @@ import SearchBar from '../../components/SearchBar';
 import ButtonPrimaryBig from '../../components/ButtonPrimaryBig';
 
 interface Props {}
+interface NavProps {
+  id?: string;
+  title?: string;
+  description?: string;
+  sku?: string;
+  price?: string;
+  imageSource?: RN.ImageProps;
+}
 
 interface State {
   quantitySelected: number | string;
@@ -28,10 +37,24 @@ interface CoffeeItemProps {
   id: string;
   title: string;
   price: string;
-  imageSource: string;
+  imageSource: RN.ImageProps;
+  description?: string;
+  sku?: string;
 }
 
 export default function CoffeeInfo(props: Props) {
+  // get window dimension
+  const windowDimension = RN.useWindowDimensions();
+
+  // navigation instances
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  // navigation params data
+  const params: NavProps = route.params;
+  const { title, imageSource, id, description, sku, price } = params;
+
+  // Quantity state
   const [quantity, setQuantity] = React.useState<State>({
     quantitySelected: 1,
     quantityOptions: [
@@ -62,42 +85,42 @@ export default function CoffeeInfo(props: Props) {
     closeDropdown();
   }
 
+  // render the dropdown select for quantity
   function renderDropdown() {
     return (
-      <RN.ScrollView
-        style={{
-          backgroundColor: '#FFFFFF',
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          top: 50,
-          zIndex: 1000,
-          width: 69,
-          height: 120,
-          borderRadius: 5,
-          overflow: 'hidden',
-          paddingBottom: 5,
-        }}
+      <RN.Modal
+        transparent={true}
+        visible={showDropDown}
+        style={styles.modalWrapper}
+        onRequestClose={closeDropdown}
       >
-        {quantity.quantityOptions.map((option, index) => (
-          <RN.Pressable
-            style={[
-              styles.dropdownitemButtion,
-              {
-                borderBottomWidth:
-                  index + 1 === quantity.quantityOptions.length ? 0 : 1,
-              },
-            ]}
-            onPress={() => onSelectQuantity(option.value)}
-          >
-            <RN.Text style={styles.dropdownItem}>{option.label}</RN.Text>
-          </RN.Pressable>
-        ))}
-      </RN.ScrollView>
+        <RN.ScrollView
+          style={[
+            styles.dropdownListWrapper,
+            { top: windowDimension.height / 2 + 20 },
+          ]}
+        >
+          {quantity.quantityOptions.map((option, index) => (
+            <RN.Pressable
+              key={`00 + ${index} + ${option.label}`}
+              style={[
+                styles.dropdownitemButtion,
+                {
+                  borderBottomWidth:
+                    index + 1 === quantity.quantityOptions.length ? 0 : 1,
+                },
+              ]}
+              onPress={() => onSelectQuantity(option.value)}
+            >
+              <RN.Text style={styles.dropdownItem}>{option.label}</RN.Text>
+            </RN.Pressable>
+          ))}
+        </RN.ScrollView>
+      </RN.Modal>
     );
   }
 
+  // render the list of top coffees
   function renderTopCoffeeList() {
     return coffeeList.map(
       (coffee: CoffeeItemProps, index) =>
@@ -108,6 +131,8 @@ export default function CoffeeInfo(props: Props) {
             price={coffee.price}
             id={coffee.id}
             imageSource={coffee.imageSource}
+            description={coffee.description}
+            sku={coffee.sku}
           />
         ),
     );
@@ -115,7 +140,11 @@ export default function CoffeeInfo(props: Props) {
 
   return (
     <NB.Container style={styles.container}>
-      <RN.StatusBar backgroundColor={Primary(3)} barStyle={'dark-content'} />
+      <RN.StatusBar
+        translucent={true}
+        backgroundColor={'transparent'}
+        barStyle={'dark-content'}
+      />
       {/* Header  */}
       <RN.View style={styles.headerWrapper}>
         <LongArrowLeft />
@@ -134,12 +163,12 @@ export default function CoffeeInfo(props: Props) {
         <RN.View style={styles.imageBgWrapper}>
           <RN.ImageBackground
             style={styles.ourCoffeeImageBg}
-            source={require('../../assets/images/Macchiatto-big.png')}
+            source={imageSource}
             imageStyle={styles.imageStyle}
           >
             <RN.View style={styles.overlay}>
               <RN.Text style={[Heading2, styles.ourCoffeeText]}>
-                Our Coffee
+                {title}
               </RN.Text>
             </RN.View>
           </RN.ImageBackground>
@@ -147,13 +176,9 @@ export default function CoffeeInfo(props: Props) {
 
         {/* Description */}
         <RN.View style={styles.descWrapper}>
-          <RN.Text style={[styles.descText]}>
-            From the volcanic Kona region with unique weather conditions, Hawaii
-            Kona coffee has a delicate sweet taste, with hints of berry-like
-            chocolatey aromas.
-          </RN.Text>
-          <RN.Text style={[styles.skuText]}>SKU: GRAMHKPODS-30</RN.Text>
-          <RN.Text style={[styles.price]}>£40.00</RN.Text>
+          <RN.Text style={[styles.descText]}>{description}</RN.Text>
+          <RN.Text style={[styles.skuText]}>SKU: {sku}</RN.Text>
+          <RN.Text style={[styles.price]}>£{price}</RN.Text>
         </RN.View>
 
         {/* Section */}
@@ -165,7 +190,7 @@ export default function CoffeeInfo(props: Props) {
                 {quantity.quantitySelected}
               </RN.Text>
             </RN.Pressable>
-            {showDropDown && renderDropdown()}
+            {renderDropdown()}
           </RN.View>
 
           <ButtonPrimaryBig
@@ -194,17 +219,18 @@ const styles = RN.StyleSheet.create({
     paddingTop: 5,
   },
   content: {},
-  contentContainerStyle: {},
+  contentContainerStyle: { paddingTop: 10 },
   headerWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 20,
+    paddingVertical: 10,
+    paddingTop: 30,
   },
   descWrapper: { marginVertical: 10 },
   descText: {
-    fontSize: 13,
-    lineHeight: 1.4 * 13,
+    fontSize: 12,
+    lineHeight: 1.4 * 12,
     fontFamily: 'OpenSans-Regular',
     color: '#000000',
   },
@@ -219,7 +245,7 @@ const styles = RN.StyleSheet.create({
   },
   imageStyle: { borderRadius: 10 },
   ourCoffeeText: { color: '#FFFFFF' },
-  recentlyWrapper: { marginTop: 10 },
+  recentlyWrapper: { marginTop: 10, paddingBottom: 10 },
   topSellingTitle: {},
   topSellingList: {
     marginVertical: 0,
@@ -228,7 +254,7 @@ const styles = RN.StyleSheet.create({
     flexWrap: 'wrap',
   },
   overlay: {
-    backgroundColor: '#00000050',
+    backgroundColor: '#00000061',
     borderBottomRightRadius: 10,
     borderBottomLeftRadius: 10,
     width: '100%',
@@ -237,7 +263,7 @@ const styles = RN.StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  searchBar: { marginBottom: 10 },
+  searchBar: {},
   skuText: {
     fontSize: 13,
     fontFamily: 'OpenSans-Bold',
@@ -301,4 +327,16 @@ const styles = RN.StyleSheet.create({
     marginHorizontal: 30,
     marginVertical: 0,
   },
+  dropdownListWrapper: {
+    backgroundColor: '#FFFFFF',
+    position: 'absolute',
+    left: 20,
+    zIndex: 100000,
+    width: 69,
+    height: 120,
+    borderRadius: 5,
+    overflow: 'hidden',
+    paddingBottom: 5,
+  },
+  modalWrapper: {},
 });

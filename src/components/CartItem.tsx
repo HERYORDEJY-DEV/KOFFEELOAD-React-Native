@@ -1,7 +1,9 @@
 import * as React from 'react';
 import * as RN from 'react-native';
-import { Primary } from '../styles/colorPallete';
 
+import { useNavigation } from '@react-navigation/native';
+
+import { Primary } from '../styles/colorPallete';
 import { BodyIntroText, MediumText } from '../styles/fontSize';
 import { FavoriteIcon, DeleteIcon } from '../svg/CartIcon';
 
@@ -10,17 +12,28 @@ interface Props {
   title: string;
   price: string;
   quantity?: string | 1;
-  imageSource: string;
+  imageSource: RN.ImageProps;
   onPress?: () => void;
   containerStyle?: RN.StyleProp<RN.PressableProps>;
 }
 
 interface State {
-  quantity: number | string;
+  quantitySelect: number | string;
 }
 
 export default function CartItem(props: Props) {
-  const [quantity, setQuantity] = React.useState<State>({ quantity: 1 });
+  // navigation instance
+  const navigation = useNavigation();
+
+  const [quantity, setQuantity] = React.useState<State>({ quantitySelect: 1 });
+
+  // quantity change function
+  function plusQuantity() {
+    setQuantity({ ...quantity, quantitySelect: +quantity.quantitySelect + 1 });
+  }
+  function minusQuantity() {
+    setQuantity({ ...quantity, quantitySelect: +quantity.quantitySelect - 1 });
+  }
 
   return (
     <RN.View style={[styles.container, props.containerStyle]}>
@@ -51,7 +64,7 @@ export default function CartItem(props: Props) {
           </RN.Pressable>
         </RN.View>
         <RN.View style={styles.quantityWrapper}>
-          <RN.Pressable style={[styles.plusWrapper]}>
+          <RN.Pressable style={[styles.plusWrapper]} onPress={minusQuantity}>
             <RN.Text
               style={[
                 styles.price,
@@ -63,10 +76,10 @@ export default function CartItem(props: Props) {
           </RN.Pressable>
           <RN.View style={styles.quantityValueWrapper}>
             <RN.Text style={[styles.price, styles.quantityValue]}>
-              {props.quantity ?? +quantity.quantity}
+              {props.quantity ?? +quantity.quantitySelect}
             </RN.Text>
           </RN.View>
-          <RN.Pressable style={[styles.plusWrapper]}>
+          <RN.Pressable style={[styles.plusWrapper]} onPress={plusQuantity}>
             <RN.Text
               style={[
                 styles.price,
