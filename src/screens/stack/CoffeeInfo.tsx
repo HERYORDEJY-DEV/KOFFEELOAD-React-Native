@@ -147,7 +147,9 @@ export default function CoffeeInfo(props: Props) {
       />
       {/* Header  */}
       <RN.View style={styles.headerWrapper}>
-        <LongArrowLeft />
+        <RN.Pressable onPress={() => navigation.goBack()}>
+          <LongArrowLeft />
+        </RN.Pressable>
       </RN.View>
 
       {/* Search Bar */}
@@ -234,14 +236,12 @@ const styles = RN.StyleSheet.create({
     fontFamily: 'OpenSans-Regular',
     color: '#000000',
   },
-  imageBgWrapper: { elevation: 3 },
+  imageBgWrapper: {},
   ourCoffeeImageBg: {
-    flex: 1,
     width: '100%',
     height: 196,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    elevation: 3,
   },
   imageStyle: { borderRadius: 10 },
   ourCoffeeText: { color: '#FFFFFF' },
