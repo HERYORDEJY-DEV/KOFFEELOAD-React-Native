@@ -5,7 +5,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Error, Primary } from './src/styles/colorPallete';
 import { Heading1 } from './src/styles/fontSize';
 import CreateAccount from './src/screens/auth/CreateAccount';
-import Shop from './src/screens/tab/Shop';
+import Account from './src/screens/tab/Account';
+import Cart from './src/screens/stack/Cart';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -20,7 +21,7 @@ export default function App() {
     return null;
   }
 
-  return <Shop />;
+  return <Cart />;
 }
 
 const styles = StyleSheet.create({

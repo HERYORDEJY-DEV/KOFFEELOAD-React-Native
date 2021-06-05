@@ -13,3 +13,12 @@ export function LongArrowLeft(props: Props) {
 `;
   return <SvgXml {...props} xml={xml} />;
 }
+
+export function ChevronRight(props: Props) {
+  const xml = `<svg width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.234991 13.1168C0.537617 13.4748 1.03352 13.4791 1.34244 13.1265L6.08889 7.70925C6.39775 7.35675 6.40281 6.78065 6.10018 6.4227L1.44949 0.923031C1.1468 0.565159 0.650897 0.560809 0.342039 0.913316C0.0331126 1.2659 0.0280591 1.842 0.330753 2.19987L4.43332 7.05144L0.246276 11.8302C-0.06265 12.1828 -0.0677027 12.7588 0.234991 13.1168Z" fill="black"/>
+</svg>
+
+`;
+  return <SvgXml {...props} xml={xml} />;
+}

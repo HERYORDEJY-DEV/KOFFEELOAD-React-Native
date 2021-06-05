@@ -33,6 +33,8 @@ const styles = RN.StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 20,
+    borderWidth: 1,
+    borderColor: '#00000050',
   },
   textInput: { marginLeft: 10, flex: 1, fontSize: 12 },
   title: {},
