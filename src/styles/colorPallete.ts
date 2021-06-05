@@ -5,6 +5,8 @@ export const Primary = (assent?: number) => {
     return '#D0B49F';
   } else if (assent === 4) {
     return '#E4D4C8';
+  } else if (assent === 5) {
+    return '#A97C5B';
   } else {
     return '#523A28';
   }

@@ -1,7 +1,7 @@
 import * as RN from 'react-native';
 // import { RFValue } from 'react-native-responsive-fontsize';
 
-export const Heading1 = {
+export const Heading1: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'PD-Bold',
   fontStyle: 'normal',
   fontSize: 28.11,
@@ -9,7 +9,7 @@ export const Heading1 = {
   color: '#000000',
 };
 
-export const Heading2 = {
+export const Heading2: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'PD-Bold',
   fontStyle: 'normal',
   fontSize: 24,
@@ -17,7 +17,7 @@ export const Heading2 = {
   color: '#000000',
 };
 
-export const Heading3 = {
+export const Heading3: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'PD-Bold',
   fontStyle: 'normal',
   fontSize: 14,
@@ -25,7 +25,7 @@ export const Heading3 = {
   color: '#000000',
 };
 
-export const Heading4 = {
+export const Heading4: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'PD-Bold',
   fontStyle: 'normal',
   fontSize: 12,
@@ -33,7 +33,7 @@ export const Heading4 = {
   color: '#000000',
 };
 
-export const BodyIntroText = {
+export const BodyIntroText: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'OpenSans-Bold',
   fontStyle: 'normal',
   fontSize: 12,
@@ -41,7 +41,7 @@ export const BodyIntroText = {
   color: '#000000',
 };
 
-export const BodyMainText = {
+export const BodyMainText: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'OpenSans-SemiBold',
   fontStyle: 'normal',
   fontSize: 8,
@@ -49,7 +49,7 @@ export const BodyMainText = {
   color: '#000000',
 };
 
-export const MediumText = {
+export const MediumText: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'OpenSans-Regular',
   fontStyle: 'normal',
   fontSize: 7.96,
@@ -57,7 +57,7 @@ export const MediumText = {
   color: '#000000',
 };
 
-export const CaptionText = {
+export const CaptionText: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'OpenSans-Regular',
   fontStyle: 'normal',
   fontSize: 7.03,
@@ -65,7 +65,7 @@ export const CaptionText = {
   color: '#000000',
 };
 
-export const SmallText = {
+export const SmallText: RN.StyleProp<RN.TextStyle> = {
   fontFamily: 'OpenSans-Regular',
   fontStyle: 'normal',
   fontSize: 6.09,
