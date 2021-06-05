@@ -36,6 +36,13 @@ const styles = RN.StyleSheet.create({
     borderWidth: 1,
     borderColor: '#00000050',
   },
-  textInput: { marginLeft: 10, flex: 1, fontSize: 12 },
+  textInput: {
+    marginLeft: 10,
+    flex: 1,
+    fontSize: 12,
+    height: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   title: {},
 });

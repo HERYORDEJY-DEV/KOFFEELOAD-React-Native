@@ -6,7 +6,7 @@ import { Error, Primary } from './src/styles/colorPallete';
 import { Heading1 } from './src/styles/fontSize';
 import CreateAccount from './src/screens/auth/CreateAccount';
 import Account from './src/screens/tab/Account';
-import Cart from './src/screens/stack/Cart';
+import CoffeeInfo from './src/screens/stack/CoffeeInfo';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -21,7 +21,7 @@ export default function App() {
     return null;
   }
 
-  return <Cart />;
+  return <CoffeeInfo />;
 }
 
 const styles = StyleSheet.create({

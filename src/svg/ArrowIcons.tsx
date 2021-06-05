@@ -22,3 +22,13 @@ export function ChevronRight(props: Props) {
 `;
   return <SvgXml {...props} xml={xml} />;
 }
+
+export function ChevronDown(props: Props) {
+  const xml = `<svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.368572 0.717291C0.00942755 1.01851 0.00312664 1.51439 0.354501 1.8247L5.75306 6.59242C6.10435 6.90267 6.68042 6.90999 7.03956 6.60877L12.5575 1.97976C12.9165 1.67847 12.9228 1.18259 12.5716 0.872349C12.2202 0.562038 11.6441 0.554718 11.285 0.856002L6.41738 4.93945L1.65509 0.733638C1.30371 0.423327 0.727725 0.416009 0.368572 0.717291Z" fill="black"/>
+</svg>
+
+
+`;
+  return <SvgXml {...props} xml={xml} />;
+}
