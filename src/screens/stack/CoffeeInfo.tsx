@@ -94,10 +94,18 @@ export default function CoffeeInfo(props: Props) {
         style={styles.modalWrapper}
         onRequestClose={closeDropdown}
       >
+        <RN.View
+          style={{
+            ...RN.StyleSheet.absoluteFillObject,
+            backgroundColor: '#00000050',
+          }}
+        />
         <RN.ScrollView
           style={[
             styles.dropdownListWrapper,
-            { top: windowDimension.height / 2 + 20 },
+            {
+              top: windowDimension.height / 2.3,
+            },
           ]}
         >
           {quantity.quantityOptions.map((option, index) => (
@@ -192,7 +200,6 @@ export default function CoffeeInfo(props: Props) {
                 {quantity.quantitySelected}
               </RN.Text>
             </RN.Pressable>
-            {renderDropdown()}
           </RN.View>
 
           <ButtonPrimaryBig
@@ -210,6 +217,7 @@ export default function CoffeeInfo(props: Props) {
           </RN.View>
         </RN.View>
       </NB.Content>
+      {renderDropdown()}
     </NB.Container>
   );
 }
@@ -333,10 +341,11 @@ const styles = RN.StyleSheet.create({
     left: 20,
     zIndex: 100000,
     width: 69,
-    height: 120,
+    height: 150,
     borderRadius: 5,
     overflow: 'hidden',
     paddingBottom: 5,
   },
-  modalWrapper: {},
+  dropdownContainer: { alignItems: 'center' },
+  modalWrapper: { flex: 1, alignItems: 'center', backgroundColor: '#00000050' },
 });

@@ -1,8 +1,11 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
 
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, LogBox } from 'react-native';
 import AppNavigation from './src/navigation/index';
+
+// console.disableYellowBox = true;
+LogBox.ignoreAllLogs(true);
 
 export default function App() {
   const [loaded] = useFonts({

@@ -9,6 +9,7 @@ import Input from '../../components/Input';
 import { BodyIntroText, Heading2 } from '../../styles/fontSize';
 import ButtonPrimaryBig from '../../components/ButtonPrimaryBig';
 import ButtonSecondaryBig from '../../components/ButtonSecondaryBig';
+import LoadingPage from './LoadingPage';
 
 interface Props {}
 
@@ -19,6 +20,18 @@ interface State {}
 export default function CreateAccount() {
   // navigation instance
   const navigation = useNavigation();
+
+  // loadingPage state
+  const [loadingPage, setLoadingPage] = React.useState(true);
+
+  // Loading page timeout
+  React.useEffect(() => {
+    setTimeout(() => setLoadingPage(false), 3000);
+  }, []);
+
+  if (loadingPage) {
+    return <LoadingPage />;
+  }
 
   return (
     <NB.Container style={styles.container}>
