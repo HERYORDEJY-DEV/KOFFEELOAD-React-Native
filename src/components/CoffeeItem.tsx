@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { Primary } from '../styles/colorPallete';
 import { BodyIntroText, MediumText } from '../styles/fontSize';
+import normalize from 'react-native-normalize';
 
 interface Props {
   id: string;
@@ -58,24 +59,28 @@ export default function CoffeeItem(props: Props) {
 
 const styles = RN.StyleSheet.create({
   container: {
-    height: 150.99,
-    width: 102.59,
+    height: normalize(150.99),
+    width: normalize(102.59, 'width'),
     backgroundColor: Primary(4),
-    borderRadius: 10,
+    borderRadius: normalize(10),
     overflow: 'hidden',
-    paddingHorizontal: 6.29,
-    paddingVertical: 8.71,
+    paddingHorizontal: normalize(6.29),
+    paddingVertical: normalize(8.71),
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: normalize(10),
   },
-  title: { textAlign: 'center', marginVertical: 5, marginBottom: 3 },
-  price: { textAlign: 'center', fontSize: 9.68 },
+  title: {
+    textAlign: 'center',
+    marginVertical: normalize(5),
+    marginBottom: normalize(3),
+  },
+  price: { textAlign: 'center', fontSize: normalize(10) },
   topWrapper: {},
   imageWrapper: {
-    height: 69.69,
-    width: 90.01,
-    borderRadius: 10,
+    height: normalize(69.69, 'height'),
+    width: normalize(90.01, 'width'),
+    borderRadius: normalize(10),
     elevation: 3,
     overflow: 'hidden',
   },
@@ -84,9 +89,12 @@ const styles = RN.StyleSheet.create({
     backgroundColor: Primary(1),
     alignItems: 'center',
     justifyContent: 'center',
-    height: 20.33,
-    width: 90.01,
-    borderRadius: 4.84,
+    height: normalize(20.33, 'height'),
+    width: normalize(90.01, 'width'),
+    borderRadius: normalize(4.84),
   },
-  addButtonTitle: { color: '#FFFFFF', fontSize: 9.68 },
+  addButtonTitle: {
+    color: '#FFFFFF',
+    fontSize: normalize(10),
+  },
 });

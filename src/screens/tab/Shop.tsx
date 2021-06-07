@@ -3,6 +3,7 @@ import * as RN from 'react-native';
 
 import * as NB from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import normalize from 'react-native-normalize';
 
 import { Primary } from '../../styles/colorPallete';
 import { CartIcon } from '../../svg/CartIcon';
@@ -87,8 +88,8 @@ export default function Shop(props: Props) {
 const styles = RN.StyleSheet.create({
   container: {
     backgroundColor: Primary(3),
-    paddingHorizontal: 20,
-    paddingTop: 5,
+    paddingHorizontal: normalize(20),
+    paddingTop: normalize(5),
   },
   content: {},
   contentContainerStyle: {},
@@ -96,22 +97,29 @@ const styles = RN.StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 10,
-    paddingTop: 40,
+    paddingVertical: normalize(10),
+    paddingTop: normalize(40),
   },
-  descWrapper: { marginBottom: 20 },
-  descImage: { minHeight: 16, marginTop: 10, marginBottom: 5 },
-  descText: { fontSize: 13, lineHeight: 1.4 * 13 },
+  descWrapper: { marginBottom: normalize(20) },
+  descImage: {
+    minHeight: normalize(16),
+    marginTop: normalize(10),
+    marginBottom: normalize(5),
+  },
+  descText: { fontSize: normalize(13), lineHeight: normalize(1.4 * 13) },
   ourCoffeeImageBg: {
     flex: 1,
     width: '100%',
-    height: 96,
+    height: normalize(96),
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageStyle: { borderRadius: 10 },
+  imageStyle: { borderRadius: normalize(10) },
   ourCoffeeText: { color: '#FFFFFF' },
-  topSellingWrapper: { marginVertical: 10, marginTop: 10 },
+  topSellingWrapper: {
+    marginVertical: normalize(10),
+    marginTop: normalize(10),
+  },
   topSellingTitle: {},
   topSellingList: {
     marginVertical: 0,
@@ -122,7 +130,7 @@ const styles = RN.StyleSheet.create({
   overlay: {
     ...RN.StyleSheet.absoluteFillObject,
     backgroundColor: '#00000080',
-    borderRadius: 10,
+    borderRadius: normalize(10),
   },
-  searchBar: { marginBottom: 10 },
+  searchBar: { marginBottom: normalize(10) },
 });

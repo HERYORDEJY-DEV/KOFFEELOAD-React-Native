@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as RN from 'react-native';
 
+import normalize from 'react-native-normalize';
 import * as NB from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
@@ -156,7 +157,7 @@ export default function CoffeeInfo(props: Props) {
       {/* Header  */}
       <RN.View style={styles.headerWrapper}>
         <RN.Pressable onPress={() => navigation.goBack()}>
-          <LongArrowLeft />
+          <LongArrowLeft width={normalize(21.83)} height={normalize(21.83)} />
         </RN.Pressable>
       </RN.View>
 
@@ -225,35 +226,35 @@ export default function CoffeeInfo(props: Props) {
 const styles = RN.StyleSheet.create({
   container: {
     backgroundColor: Primary(3),
-    paddingHorizontal: 20,
-    paddingTop: 5,
+    paddingHorizontal: normalize(20),
+    paddingTop: normalize(5),
   },
   content: {},
-  contentContainerStyle: { paddingTop: 10 },
+  contentContainerStyle: { paddingTop: normalize(10) },
   headerWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 10,
-    paddingTop: 30,
+    paddingVertical: normalize(10),
+    paddingTop: normalize(30),
   },
-  descWrapper: { marginVertical: 10 },
+  descWrapper: { marginVertical: normalize(10) },
   descText: {
-    fontSize: 12,
-    lineHeight: 1.4 * 12,
+    fontSize: normalize(12),
+    lineHeight: normalize(1.4 * 12),
     fontFamily: 'OpenSans-Regular',
     color: '#000000',
   },
   imageBgWrapper: {},
   ourCoffeeImageBg: {
     width: '100%',
-    height: 196,
+    height: normalize(196, 'height'),
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  imageStyle: { borderRadius: 10 },
+  imageStyle: { borderRadius: normalize(10) },
   ourCoffeeText: { color: '#FFFFFF' },
-  recentlyWrapper: { marginTop: 10, paddingBottom: 10 },
+  recentlyWrapper: { marginTop: normalize(10), paddingBottom: normalize(10) },
   topSellingTitle: {},
   topSellingList: {
     marginVertical: 0,
@@ -263,23 +264,23 @@ const styles = RN.StyleSheet.create({
   },
   overlay: {
     backgroundColor: '#00000061',
-    borderBottomRightRadius: 10,
-    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: normalize(10),
+    borderBottomLeftRadius: normalize(10),
     width: '100%',
     bottom: 0,
-    height: 42,
+    height: normalize(42),
     alignItems: 'center',
     justifyContent: 'center',
   },
   searchBar: {},
   skuText: {
-    fontSize: 13,
+    fontSize: normalize(13),
     fontFamily: 'OpenSans-Bold',
     color: '#000000',
-    marginVertical: 5,
+    marginVertical: normalize(5),
   },
   price: {
-    fontSize: 18,
+    fontSize: normalize(18),
     fontFamily: 'OpenSans-Bold',
     color: '#000000',
   },
@@ -289,12 +290,12 @@ const styles = RN.StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     borderWidth: 0,
-    borderRadius: 5,
+    borderRadius: normalize(10),
     backgroundColor: '#FFFFFF',
     // margin: 5,
     overflow: 'hidden',
-    width: 69,
-    height: 54,
+    width: normalize(69),
+    height: normalize(54),
   },
   containerStyle: {
     width: 30,
@@ -306,45 +307,45 @@ const styles = RN.StyleSheet.create({
     padding: 0,
   },
   placeholderStyle: {
-    fontSize: 13,
+    fontSize: normalize(13),
     fontFamily: 'OpenSans-Regular',
     color: '#000000',
     textAlign: 'center',
     padding: 0,
   },
   dropdownitemButtion: {
-    paddingVertical: 10,
+    paddingVertical: normalize(10),
     borderBottomColor: '#00000050',
     borderBottomWidth: 1,
   },
   dropdownItem: {
-    fontSize: 13,
+    fontSize: normalize(13),
     fontFamily: 'OpenSans-Regular',
     color: '#000000',
     textAlign: 'center',
   },
   recentlyTitle: {
     fontFamily: 'OpenSans-Bold',
-    fontSize: 14,
+    fontSize: normalize(14),
     color: '#000000',
-    marginBottom: 10,
-    marginTop: 20,
+    marginBottom: normalize(10),
+    marginTop: normalize(20),
   },
   addButton: {
     flex: 1,
-    marginHorizontal: 30,
+    marginHorizontal: normalize(30),
     marginVertical: 0,
   },
   dropdownListWrapper: {
     backgroundColor: '#FFFFFF',
     position: 'absolute',
-    left: 20,
+    left: normalize(20),
     zIndex: 100000,
-    width: 69,
-    height: 150,
-    borderRadius: 5,
+    width: normalize(69),
+    height: normalize(150, 'height'),
+    borderRadius: normalize(5),
     overflow: 'hidden',
-    paddingBottom: 5,
+    paddingBottom: normalize(5),
   },
   dropdownContainer: { alignItems: 'center' },
   modalWrapper: { flex: 1, alignItems: 'center', backgroundColor: '#00000050' },

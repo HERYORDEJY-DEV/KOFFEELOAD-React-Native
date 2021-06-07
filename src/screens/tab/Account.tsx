@@ -3,6 +3,7 @@ import * as RN from 'react-native';
 
 import * as NB from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import normalize from 'react-native-normalize';
 
 import { Primary } from '../../styles/colorPallete';
 import { Heading2, Heading3 } from '../../styles/fontSize';
@@ -119,19 +120,22 @@ export default function Account(props: Props) {
 
 const styles = RN.StyleSheet.create({
   container: { flex: 1 },
-  content: { paddingHorizontal: 20, flex: 0.8 },
-  contentContainerStyle: { paddingTop: 30 },
+  content: { paddingHorizontal: normalize(20), flex: 0.8 },
+  contentContainerStyle: {
+    paddingTop: normalize(30),
+    paddingBottom: normalize(20),
+  },
   headerWrapper: {
     backgroundColor: Primary(2),
-    paddingVertical: 10,
+    paddingVertical: normalize(10),
     flex: 0.11,
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 30,
+    paddingHorizontal: normalize(20),
+    paddingTop: normalize(30),
   },
   headerTitle: {},
   headerSubtitle: {},
-  sectionWrapper: { marginBottom: 10 },
-  sectionTitle: { marginBottom: 10 },
-  logoutButton: { marginHorizontal: 20, elevation: 3 },
+  sectionWrapper: { marginBottom: normalize(10) },
+  sectionTitle: { marginBottom: normalize(10) },
+  logoutButton: { marginHorizontal: normalize(20), elevation: 3 },
 });

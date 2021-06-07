@@ -3,6 +3,7 @@ import * as RN from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RFValue } from 'react-native-responsive-fontsize';
+import normalize from 'react-native-normalize';
 
 import Home from '../screens/tab/Home';
 import Shop from '../screens/tab/Shop';
@@ -24,13 +25,31 @@ const BottomTab = createBottomTabNavigator();
 
 function tabIcons(label, isFocused) {
   if (label == 'Home') {
-    return <HomeTabIcon fill={isFocused ? '#000000' : '#6A6A6A'} />;
+    return (
+      <HomeTabIcon
+        width={normalize(23.62)}
+        height={normalize(23.62)}
+        fill={isFocused ? '#000000' : '#6A6A6A'}
+      />
+    );
   }
   if (label == 'Shop') {
-    return <ShopTabIcon fill={isFocused ? '#000000' : '#6A6A6A'} />;
+    return (
+      <ShopTabIcon
+        width={normalize(24)}
+        height={normalize(26)}
+        fill={isFocused ? '#000000' : '#6A6A6A'}
+      />
+    );
   }
   if (label == 'Account') {
-    return <AccountTabIcon fill={isFocused ? '#000000' : '#6A6A6A'} />;
+    return (
+      <AccountTabIcon
+        width={normalize(22.34)}
+        height={normalize(22.34)}
+        fill={isFocused ? '#000000' : '#6A6A6A'}
+      />
+    );
   }
 }
 
@@ -123,17 +142,17 @@ const styles = RN.StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: normalize(10),
   },
   labelWrapper: {
     alignItems: 'center',
     flex: 1,
-    paddingVertical: 5,
+    paddingVertical: normalize(10, 'height'),
   },
   label: {
     fontFamily: 'OpenSans-SemiBold',
-    fontSize: 8,
+    fontSize: normalize(8),
     color: '#6A6A6A',
-    paddingTop: 5,
+    paddingTop: normalize(5),
   },
 });

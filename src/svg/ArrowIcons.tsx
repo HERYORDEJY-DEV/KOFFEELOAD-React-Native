@@ -3,6 +3,8 @@ import { SvgXml } from 'react-native-svg';
 
 interface Props {
   fill?: string;
+  width?: number;
+  height?: number;
 }
 
 export function LongArrowLeft(props: Props) {

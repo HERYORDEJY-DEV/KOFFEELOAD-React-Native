@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as RN from 'react-native';
 import { Primary } from '../styles/colorPallete';
 
+import normalize from 'react-native-normalize';
+
 import { BodyIntroText } from '../styles/fontSize';
 
 interface Props {
@@ -28,10 +30,10 @@ const styles = RN.StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
-    borderRadius: 10,
-    minHeight: 52,
+    borderRadius: normalize(10),
+    height: normalize(52, 'height'),
     justifyContent: 'center',
-    marginVertical: 10,
+    marginVertical: normalize(10, 'height'),
   },
   title: { color: '#000000' },
 });

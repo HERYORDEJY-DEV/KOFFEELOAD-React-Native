@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as RN from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
+import normalize from 'react-native-normalize';
 
 import { Primary } from '../styles/colorPallete';
 import { BodyIntroText, MediumText } from '../styles/fontSize';
@@ -56,7 +57,7 @@ export default function CartItem(props: Props) {
             <RN.Text
               style={[
                 styles.price,
-                { fontFamily: 'OpenSans-Bold', marginLeft: 10 },
+                { fontFamily: 'OpenSans-Bold', marginLeft: normalize(10) },
               ]}
             >
               Remove
@@ -97,26 +98,26 @@ export default function CartItem(props: Props) {
 
 const styles = RN.StyleSheet.create({
   container: {
-    height: 147,
+    // height: normalize(147, 'height'),
     backgroundColor: Primary(4),
-    borderRadius: 10,
+    borderRadius: normalize(10),
     overflow: 'hidden',
-    paddingHorizontal: 20,
-    paddingVertical: 8.71,
+    paddingHorizontal: normalize(20),
+    paddingVertical: normalize(10),
     // alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: normalize(10),
   },
-  titleWrapper: { marginLeft: 10 },
+  titleWrapper: { marginLeft: normalize(10) },
   title: {
-    marginVertical: 5,
-    marginBottom: 3,
-    fontSize: 18,
+    marginVertical: normalize(5),
+    marginBottom: normalize(3),
+    fontSize: normalize(18),
     color: '#000000',
     fontFamily: 'OpenSans-Bold',
   },
   price: {
-    fontSize: 13,
+    fontSize: normalize(13),
     color: '#000000',
     fontFamily: 'OpenSans-SemiBold',
   },
@@ -125,12 +126,12 @@ const styles = RN.StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: Primary(5),
     borderBottomWidth: 1,
-    paddingBottom: 10,
+    paddingBottom: normalize(10),
   },
   imageWrapper: {
-    height: 69.69,
-    width: 90.01,
-    borderRadius: 10,
+    height: normalize(69.69, 'height'),
+    width: normalize(90.01, 'width'),
+    borderRadius: normalize(10),
     elevation: 3,
     overflow: 'hidden',
   },
@@ -145,12 +146,16 @@ const styles = RN.StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  favButtonWrapper: { marginRight: 20, padding: 10, paddingLeft: 0 },
+  favButtonWrapper: {
+    marginRight: normalize(20),
+    padding: normalize(10),
+    paddingLeft: 0,
+  },
   delButtonWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: normalize(10),
     paddingLeft: 0,
   },
   quantityWrapper: {
@@ -160,20 +165,20 @@ const styles = RN.StyleSheet.create({
   },
   plusWrapper: {
     backgroundColor: Primary(1),
-    borderRadius: 18,
-    height: 18,
-    width: 18,
+    borderRadius: normalize(18),
+    height: normalize(18, 'height'),
+    width: normalize(18, 'height'),
     alignItems: 'center',
     justifyContent: 'center',
   },
   quantityValueWrapper: {
     backgroundColor: '#FFFFFF',
-    width: 29,
-    height: 24,
+    width: normalize(29, 'height'),
+    height: normalize(24, 'width'),
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 3,
-    marginHorizontal: 5,
+    borderRadius: normalize(5),
+    marginHorizontal: normalize(5),
   },
   quantityValue: {
     fontFamily: 'OpenSans-Bold',

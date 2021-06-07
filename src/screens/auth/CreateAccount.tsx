@@ -3,6 +3,7 @@ import * as RN from 'react-native';
 
 import * as NB from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import normalize from 'react-native-normalize';
 
 import { Primary } from '../../styles/colorPallete';
 import Input from '../../components/Input';
@@ -87,17 +88,17 @@ export default function CreateAccount() {
 const styles = RN.StyleSheet.create({
   container: {
     backgroundColor: Primary(3),
-    padding: 20,
+    padding: normalize(20),
     justifyContent: 'space-between',
-    paddingTop: 50,
+    paddingTop: normalize(40),
   },
   content: {},
   contentContainerStyle: {},
   logoWrapper: { alignItems: 'center' },
-  formWrapper: { marginTop: 40, flex: 1 },
-  inputsWrapper: { marginTop: 20 },
-  forgotWrapper: { alignItems: 'flex-end', marginBottom: 20 },
+  formWrapper: { marginTop: normalize(30), flex: 1 },
+  inputsWrapper: { marginTop: normalize(20) },
+  forgotWrapper: { alignItems: 'flex-end', marginBottom: normalize(20) },
   forgotText: {},
-  loginButton: { elevation: 2, margin: 1 },
+  loginButton: { elevation: 3 },
   termsWrapper: { alignItems: 'center' },
 });

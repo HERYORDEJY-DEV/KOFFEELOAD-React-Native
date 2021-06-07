@@ -11,6 +11,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import ButtonSecondaryBig from '../../components/ButtonSecondaryBig';
 import CoffeeItem from '../../components/CoffeeItem';
 import { coffeeList } from '../../api/data';
+import normalize from 'react-native-normalize';
 
 interface Props {}
 
@@ -57,7 +58,7 @@ export default function Home(props: Props) {
       <RN.View style={styles.headerWrapper}>
         <RN.Text style={[Heading2, styles.headerText]}>Welcome Adedire</RN.Text>
         <RN.Pressable onPress={() => navigation.navigate('Cart')}>
-          <CartIcon />
+          <CartIcon width={normalize(28)} height={normalize(24.8)} />
         </RN.Pressable>
       </RN.View>
 
@@ -116,49 +117,63 @@ export default function Home(props: Props) {
 }
 
 const styles = RN.StyleSheet.create({
-  container: { backgroundColor: Primary(3), padding: 20, paddingBottom: 0 },
+  container: {
+    backgroundColor: Primary(3),
+    padding: normalize(20),
+    paddingBottom: 0,
+  },
   content: {},
-  contentContainerStyle: { paddingBottom: 20 },
+  contentContainerStyle: { paddingBottom: normalize(20) },
   headerWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 0,
-    paddingVertical: 10,
-    paddingBottom: 15,
-    paddingTop: 30,
+    paddingVertical: normalize(10),
+    paddingBottom: normalize(15),
+    paddingTop: normalize(30),
   },
   headerText: {},
   heroImageWrapper: {
-    borderRadius: 10,
+    borderRadius: normalize(10),
     overflow: 'hidden',
-    minHeight: 134,
+    height: normalize(134, 'height'),
     marginBottom: 10,
   },
   heroImage: { flex: 1, width: null, height: null },
-  descWrapper: { marginBottom: 20 },
-  descImage: { minHeight: 16, marginTop: 10, marginBottom: 5 },
-  descText: { fontSize: 13, lineHeight: 1.4 * 13 },
+  descWrapper: { marginBottom: normalize(20) },
+  descImage: {
+    height: normalize(16, 'height'),
+    width: normalize(132),
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  descText: { fontSize: normalize(13), lineHeight: normalize(1.4 * 13) },
   ourCoffeeImageBg: {
     flex: 1,
     width: '100%',
-    height: 96,
+    height: normalize(96),
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageStyle: { borderRadius: 10 },
+  imageStyle: { borderRadius: normalize(10) },
   ourCoffeeText: { color: '#FFFFFF' },
-  topSellingWrapper: { marginTop: 20 },
+  topSellingWrapper: { marginTop: normalize(20) },
   topSellingTitle: {},
   topSellingList: {
-    marginVertical: 10,
+    marginVertical: normalize(10),
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  createButton: { elevation: 3, marginHorizontal: 20, marginBottom: 0 },
+  createButton: {
+    elevation: 3,
+    marginHorizontal: normalize(20),
+    marginBottom: 0,
+  },
   overlay: {
     ...RN.StyleSheet.absoluteFillObject,
     backgroundColor: '#00000080',
-    borderRadius: 10,
+    borderRadius: normalize(10),
   },
 });
