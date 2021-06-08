@@ -125,10 +125,11 @@ const styles = RN.StyleSheet.create({
   headerWrapper: {
     backgroundColor: Primary(2),
     paddingVertical: RFValue(10),
-    flex: 0.11,
+    // flex: 0.11,
     justifyContent: 'flex-end',
     paddingHorizontal: RFValue(20),
-    paddingTop: RFValue(30),
+    // paddingTop: RFValue(40),
+    height: RFValue(125),
   },
   headerTitle: {},
   headerSubtitle: {},
