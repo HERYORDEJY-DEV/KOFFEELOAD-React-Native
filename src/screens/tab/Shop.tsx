@@ -4,11 +4,11 @@ import * as RN from 'react-native';
 import * as NB from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import normalize from 'react-native-normalize';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import { Primary } from '../../styles/colorPallete';
 import { CartIcon } from '../../svg/CartIcon';
 import { BodyIntroText, Heading2, MediumText } from '../../styles/fontSize';
-import { RFValue } from 'react-native-responsive-fontsize';
 import ButtonSecondaryBig from '../../components/ButtonSecondaryBig';
 import CoffeeItem from '../../components/CoffeeItem';
 import { coffeeList } from '../../api/data';
@@ -23,7 +23,7 @@ interface CoffeeItemProps {
   id: string;
   title: string;
   price: string;
-  imageSource: string;
+  imageSource: RN.ImageProps;
 }
 
 export default function Shop(props: Props) {
@@ -53,7 +53,7 @@ export default function Shop(props: Props) {
       <RN.View style={styles.headerWrapper}>
         <LongArrowLeft />
         <RN.Pressable onPress={() => navigation.navigate('Cart')}>
-          <CartIcon />
+          <CartIcon width={RFValue(28)} height={RFValue(24.8)} />
         </RN.Pressable>
       </RN.View>
 
@@ -88,8 +88,8 @@ export default function Shop(props: Props) {
 const styles = RN.StyleSheet.create({
   container: {
     backgroundColor: Primary(3),
-    paddingHorizontal: normalize(20),
-    paddingTop: normalize(5),
+    paddingHorizontal: RFValue(20),
+    paddingTop: RFValue(5),
   },
   content: {},
   contentContainerStyle: {},
@@ -97,28 +97,28 @@ const styles = RN.StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: normalize(10),
-    paddingTop: normalize(40),
+    paddingVertical: RFValue(10),
+    paddingTop: RFValue(40),
   },
-  descWrapper: { marginBottom: normalize(20) },
+  descWrapper: { marginBottom: RFValue(20) },
   descImage: {
-    minHeight: normalize(16),
-    marginTop: normalize(10),
-    marginBottom: normalize(5),
+    minHeight: RFValue(16),
+    marginTop: RFValue(10),
+    marginBottom: RFValue(5),
   },
-  descText: { fontSize: normalize(13), lineHeight: normalize(1.4 * 13) },
+  descText: { fontSize: RFValue(13), lineHeight: RFValue(1.4 * 13) },
   ourCoffeeImageBg: {
     flex: 1,
     width: '100%',
-    height: normalize(96),
+    height: RFValue(96),
     alignItems: 'center',
     justifyContent: 'center',
   },
-  imageStyle: { borderRadius: normalize(10) },
+  imageStyle: { borderRadius: RFValue(10) },
   ourCoffeeText: { color: '#FFFFFF' },
   topSellingWrapper: {
-    marginVertical: normalize(10),
-    marginTop: normalize(10),
+    marginVertical: RFValue(10),
+    marginTop: RFValue(10),
   },
   topSellingTitle: {},
   topSellingList: {
@@ -130,7 +130,7 @@ const styles = RN.StyleSheet.create({
   overlay: {
     ...RN.StyleSheet.absoluteFillObject,
     backgroundColor: '#00000080',
-    borderRadius: normalize(10),
+    borderRadius: RFValue(10),
   },
-  searchBar: { marginBottom: normalize(10) },
+  searchBar: { marginBottom: RFValue(10) },
 });

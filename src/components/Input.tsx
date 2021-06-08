@@ -27,15 +27,15 @@ export default function Input(props: Props) {
 
 const styles = RN.StyleSheet.create({
   inputContainer: {
-    marginBottom: normalize(10, 'height'),
+    marginBottom: RFValue(10),
   },
-  label: { marginBottom: normalize(5, 'height') },
+  label: { marginBottom: RFValue(5) },
   textInput: {
-    borderRadius: normalize(10),
+    borderRadius: RFValue(10),
     backgroundColor: '#FFFFFF',
-    height: normalize(52, 'height'),
+    height: RFValue(52),
     fontFamily: 'OpenSans-Regular',
-    fontSize: normalize(15),
+    fontSize: RFValue(15),
     margin: 0,
   },
 });

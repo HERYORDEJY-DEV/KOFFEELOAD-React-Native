@@ -3,6 +3,7 @@ import * as RN from 'react-native';
 
 import * as NB from 'native-base';
 import { useNavigation } from '@react-navigation/native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import { Primary } from '../../styles/colorPallete';
 import Input from '../../components/Input';
@@ -29,7 +30,10 @@ export default function LoadingPage() {
 
       {/*Logo */}
       <RN.View style={styles.logoWrapper}>
-        <RN.Image source={require('../../assets/images/koffee-logo.png')} />
+        <RN.Image
+          source={require('../../assets/images/koffee-logo.png')}
+          style={styles.image}
+        />
       </RN.View>
     </NB.Container>
   );
@@ -44,5 +48,6 @@ const styles = RN.StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  logoWrapper: {},
+  logoWrapper: { width: RFValue(205), height: RFValue(24) },
+  image: { flex: 1, width: null, height: null },
 });

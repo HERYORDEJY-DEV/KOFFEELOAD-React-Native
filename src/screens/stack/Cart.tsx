@@ -3,6 +3,7 @@ import * as RN from 'react-native';
 
 import * as NB from 'native-base';
 import normalize from 'react-native-normalize';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import { Primary } from '../../styles/colorPallete';
 import { BodyIntroText, Heading2, Heading3 } from '../../styles/fontSize';
@@ -116,45 +117,45 @@ export default function Cart(props: Props) {
 const styles = RN.StyleSheet.create({
   container: { flex: 1 },
   content: {
-    paddingHorizontal: normalize(20),
-    marginTop: normalize(30),
+    paddingHorizontal: RFValue(20),
+    marginTop: RFValue(30),
     flex: 0.8,
   },
   contentContainerStyle: {},
   headerWrapper: {
     backgroundColor: Primary(2),
-    paddingVertical: normalize(10),
+    paddingVertical: RFValue(10),
     flex: 0.11,
     justifyContent: 'flex-end',
-    paddingHorizontal: normalize(20),
-    paddingTop: normalize(30),
+    paddingHorizontal: RFValue(20),
+    paddingTop: RFValue(30),
   },
   headerTitle: {},
   headerSubtitle: {},
-  sectionWrapper: { marginBottom: normalize(20) },
-  sectionTitle: { marginBottom: normalize(10) },
-  logoutButton: { marginHorizontal: normalize(20), elevation: 3 },
+  sectionWrapper: { marginBottom: RFValue(20) },
+  sectionTitle: { marginBottom: RFValue(10) },
+  logoutButton: { marginHorizontal: RFValue(20), elevation: 3 },
   totalWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: normalize(10),
+    marginVertical: RFValue(10),
   },
   totalText: {
     fontFamily: 'OpenSans-Bold',
-    fontSize: normalize(14),
+    fontSize: RFValue(14),
     color: '#000000',
   },
   totalAmount: {
     fontFamily: 'OpenSans-SemiBold',
-    fontSize: normalize(14),
+    fontSize: RFValue(14),
     color: '#000000',
   },
-  recentlyWrapper: { marginVertical: normalize(20), marginTop: normalize(30) },
+  recentlyWrapper: { marginVertical: RFValue(20), marginTop: RFValue(30) },
   recentlyListWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: normalize(10),
+    marginVertical: RFValue(10),
   },
 });

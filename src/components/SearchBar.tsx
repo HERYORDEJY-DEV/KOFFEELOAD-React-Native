@@ -1,9 +1,12 @@
 import * as React from 'react';
 import * as RN from 'react-native';
-import { Primary } from '../styles/colorPallete';
+
 import { BodyIntroText } from '../styles/fontSize';
 import { SearchIcon } from '../svg/Searchicon';
 import normalize from 'react-native-normalize';
+import { RFValue } from 'react-native-responsive-fontsize';
+
+import { Primary } from '../styles/colorPallete';
 
 interface Props {
   onChange?: (e: {}) => void;
@@ -15,7 +18,7 @@ interface State {}
 export default function SearchBar(props: Props) {
   return (
     <RN.View style={[styles.container, props.containerStyle]}>
-      <SearchIcon width={normalize(16)} height={normalize(16)} />
+      <SearchIcon width={RFValue(16)} height={RFValue(16)} />
       <RN.TextInput
         style={[BodyIntroText, styles.textInput]}
         inlineImageLeft={'search'}
@@ -29,21 +32,23 @@ export default function SearchBar(props: Props) {
 const styles = RN.StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-    height: normalize(36, 'height'),
-    borderRadius: normalize(10),
+    height: RFValue(36),
+    borderRadius: RFValue(10),
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: normalize(20),
+    paddingLeft: RFValue(20),
     borderWidth: 1,
     borderColor: '#00000050',
+    overflow: 'hidden',
   },
   textInput: {
-    marginLeft: normalize(10),
+    marginLeft: RFValue(10),
     flex: 1,
-    fontSize: normalize(12),
-    height: normalize(36),
+    fontSize: RFValue(12),
+    height: RFValue(36),
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'center',
   },
   title: {},
 });

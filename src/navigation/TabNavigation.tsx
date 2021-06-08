@@ -27,8 +27,8 @@ function tabIcons(label, isFocused) {
   if (label == 'Home') {
     return (
       <HomeTabIcon
-        width={normalize(23.62)}
-        height={normalize(23.62)}
+        width={RFValue(23.62)}
+        height={RFValue(23.62)}
         fill={isFocused ? '#000000' : '#6A6A6A'}
       />
     );
@@ -36,8 +36,8 @@ function tabIcons(label, isFocused) {
   if (label == 'Shop') {
     return (
       <ShopTabIcon
-        width={normalize(24)}
-        height={normalize(26)}
+        width={RFValue(24)}
+        height={RFValue(26)}
         fill={isFocused ? '#000000' : '#6A6A6A'}
       />
     );
@@ -45,8 +45,8 @@ function tabIcons(label, isFocused) {
   if (label == 'Account') {
     return (
       <AccountTabIcon
-        width={normalize(22.34)}
-        height={normalize(22.34)}
+        width={RFValue(22.34)}
+        height={RFValue(22.34)}
         fill={isFocused ? '#000000' : '#6A6A6A'}
       />
     );
@@ -142,17 +142,17 @@ const styles = RN.StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: normalize(10),
+    paddingHorizontal: RFValue(10),
   },
   labelWrapper: {
     alignItems: 'center',
     flex: 1,
-    paddingVertical: normalize(10, 'height'),
+    paddingVertical: RFValue(5),
   },
   label: {
     fontFamily: 'OpenSans-SemiBold',
-    fontSize: normalize(8),
+    fontSize: RFValue(8),
     color: '#6A6A6A',
-    paddingTop: normalize(5),
+    paddingTop: RFValue(5),
   },
 });

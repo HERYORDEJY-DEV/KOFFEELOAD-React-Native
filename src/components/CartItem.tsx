@@ -3,6 +3,7 @@ import * as RN from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import normalize from 'react-native-normalize';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import { Primary } from '../styles/colorPallete';
 import { BodyIntroText, MediumText } from '../styles/fontSize';
@@ -50,14 +51,14 @@ export default function CartItem(props: Props) {
       <RN.View style={styles.bottomWrapper}>
         <RN.View style={styles.bottomLeftWrapper}>
           <RN.Pressable style={[styles.favButtonWrapper]}>
-            <FavoriteIcon />
+            <FavoriteIcon width={RFValue(17)} height={RFValue(17)} />
           </RN.Pressable>
           <RN.Pressable style={[styles.delButtonWrapper]}>
-            <DeleteIcon />
+            <DeleteIcon width={RFValue(13)} height={RFValue(16.61)} />
             <RN.Text
               style={[
                 styles.price,
-                { fontFamily: 'OpenSans-Bold', marginLeft: normalize(10) },
+                { fontFamily: 'OpenSans-Bold', marginLeft: RFValue(10) },
               ]}
             >
               Remove
@@ -98,26 +99,26 @@ export default function CartItem(props: Props) {
 
 const styles = RN.StyleSheet.create({
   container: {
-    // height: normalize(147, 'height'),
+    height: RFValue(147),
     backgroundColor: Primary(4),
-    borderRadius: normalize(10),
+    borderRadius: RFValue(10),
     overflow: 'hidden',
-    paddingHorizontal: normalize(20),
-    paddingVertical: normalize(10),
+    paddingHorizontal: RFValue(20),
+    paddingVertical: RFValue(10),
     // alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: normalize(10),
+    marginBottom: RFValue(10),
   },
-  titleWrapper: { marginLeft: normalize(10) },
+  titleWrapper: { marginLeft: RFValue(10) },
   title: {
-    marginVertical: normalize(5),
-    marginBottom: normalize(3),
-    fontSize: normalize(18),
+    marginVertical: RFValue(5),
+    marginBottom: RFValue(3),
+    fontSize: RFValue(18),
     color: '#000000',
     fontFamily: 'OpenSans-Bold',
   },
   price: {
-    fontSize: normalize(13),
+    fontSize: RFValue(13),
     color: '#000000',
     fontFamily: 'OpenSans-SemiBold',
   },
@@ -126,12 +127,12 @@ const styles = RN.StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: Primary(5),
     borderBottomWidth: 1,
-    paddingBottom: normalize(10),
+    paddingBottom: RFValue(10),
   },
   imageWrapper: {
-    height: normalize(69.69, 'height'),
-    width: normalize(90.01, 'width'),
-    borderRadius: normalize(10),
+    height: RFValue(69.69),
+    width: RFValue(90.01),
+    borderRadius: RFValue(10),
     elevation: 3,
     overflow: 'hidden',
   },
@@ -147,15 +148,15 @@ const styles = RN.StyleSheet.create({
     justifyContent: 'space-between',
   },
   favButtonWrapper: {
-    marginRight: normalize(20),
-    padding: normalize(10),
+    marginRight: RFValue(20),
+    padding: RFValue(10),
     paddingLeft: 0,
   },
   delButtonWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: normalize(10),
+    padding: RFValue(10),
     paddingLeft: 0,
   },
   quantityWrapper: {
@@ -165,20 +166,20 @@ const styles = RN.StyleSheet.create({
   },
   plusWrapper: {
     backgroundColor: Primary(1),
-    borderRadius: normalize(18),
-    height: normalize(18, 'height'),
-    width: normalize(18, 'height'),
+    borderRadius: RFValue(18),
+    height: RFValue(18),
+    width: RFValue(18),
     alignItems: 'center',
     justifyContent: 'center',
   },
   quantityValueWrapper: {
     backgroundColor: '#FFFFFF',
-    width: normalize(29, 'height'),
-    height: normalize(24, 'width'),
+    width: RFValue(29),
+    height: RFValue(24),
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: normalize(5),
-    marginHorizontal: normalize(5),
+    borderRadius: RFValue(5),
+    marginHorizontal: RFValue(5),
   },
   quantityValue: {
     fontFamily: 'OpenSans-Bold',

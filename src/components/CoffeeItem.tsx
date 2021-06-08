@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as RN from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 import { Primary } from '../styles/colorPallete';
 import { BodyIntroText, MediumText } from '../styles/fontSize';
@@ -45,7 +46,9 @@ export default function CoffeeItem(props: Props) {
         <RN.View style={styles.imageWrapper}>
           <RN.Image style={styles.image} source={props.imageSource} />
         </RN.View>
-        <RN.Text style={[BodyIntroText, styles.title]}>{props.title}</RN.Text>
+        <RN.Text style={[BodyIntroText, styles.title]} numberOfLines={1}>
+          {props.title}
+        </RN.Text>
         <RN.Text style={[MediumText, styles.price]}>£{props.price}</RN.Text>
       </RN.Pressable>
       <RN.Pressable style={[styles.addButtonWrapper]}>
@@ -59,28 +62,28 @@ export default function CoffeeItem(props: Props) {
 
 const styles = RN.StyleSheet.create({
   container: {
-    height: normalize(150.99),
-    width: normalize(102.59, 'width'),
+    height: RFValue(150.99),
+    width: RFValue(102.59),
     backgroundColor: Primary(4),
-    borderRadius: normalize(10),
+    borderRadius: RFValue(10),
     overflow: 'hidden',
-    paddingHorizontal: normalize(6.29),
-    paddingVertical: normalize(8.71),
+    paddingHorizontal: RFValue(6.29),
+    paddingVertical: RFValue(8.71),
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: normalize(10),
+    marginBottom: RFValue(10),
   },
   title: {
     textAlign: 'center',
-    marginVertical: normalize(5),
-    marginBottom: normalize(3),
+    marginVertical: RFValue(5),
+    marginBottom: RFValue(3),
   },
-  price: { textAlign: 'center', fontSize: normalize(10) },
+  price: { textAlign: 'center', fontSize: RFValue(10) },
   topWrapper: {},
   imageWrapper: {
-    height: normalize(69.69, 'height'),
-    width: normalize(90.01, 'width'),
-    borderRadius: normalize(10),
+    height: RFValue(69.69),
+    width: RFValue(90.01),
+    borderRadius: RFValue(10),
     elevation: 3,
     overflow: 'hidden',
   },
@@ -89,12 +92,12 @@ const styles = RN.StyleSheet.create({
     backgroundColor: Primary(1),
     alignItems: 'center',
     justifyContent: 'center',
-    height: normalize(20.33, 'height'),
-    width: normalize(90.01, 'width'),
-    borderRadius: normalize(4.84),
+    height: RFValue(20.33),
+    width: RFValue(90.01),
+    borderRadius: RFValue(4.84),
   },
   addButtonTitle: {
     color: '#FFFFFF',
-    fontSize: normalize(10),
+    fontSize: RFValue(10),
   },
 });

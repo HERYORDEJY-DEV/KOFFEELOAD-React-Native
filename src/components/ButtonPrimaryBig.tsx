@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as RN from 'react-native';
 import { Primary } from '../styles/colorPallete';
 
+import { RFValue } from 'react-native-responsive-fontsize';
 import { BodyIntroText } from '../styles/fontSize';
 import normalize from 'react-native-normalize';
 
@@ -29,10 +30,10 @@ const styles = RN.StyleSheet.create({
   container: {
     backgroundColor: Primary(1),
     alignItems: 'center',
-    borderRadius: normalize(10),
-    height: normalize(52, 'height'),
+    borderRadius: RFValue(10),
+    height: RFValue(52),
     justifyContent: 'center',
-    marginVertical: normalize(10, 'height'),
+    marginVertical: RFValue(10),
   },
   title: { color: '#FFFFFF' },
 });
